@@ -6,3 +6,6 @@ from django.http import HttpResponse
 
 def home(request):
     return HttpResponse('<h1>Master Finch Collector</h1>')
+
+def about(request):
+    return HttpResponse('<h1>About the FinchCollector</h1>')
