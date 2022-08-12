@@ -25,7 +25,7 @@ def finches_detail(request, finch_id):
 
 class FinchCreate(CreateView):
   model = Finch
-  fields = ['name', 'type', 'habitat', 'descripton']
+  fields = ['name', 'type', 'habitat', 'description']
 
 class FinchUpdate(UpdateView):
   model = Finch
@@ -46,6 +46,10 @@ def add_feeding(request, finch_id):
 def assoc_toy(request, finch_id, toy_id):
   finch = Finch.objects.get(id=finch_id)
   finch.toys.add(toy_id)
+  return redirect('detail', finch_id=finch_id)
+
+def unassoc_toy(request, finch_id, toy_id):
+  Finch.objects.get(id=finch_id).toys.remove(toy_id)
   return redirect('detail', finch_id=finch_id)
 
 class ToyList(ListView):
