@@ -43,3 +43,11 @@ def add_feeding(request, finch_id):
 
 class ToyList(ListView):
   model = Toy
+
+class ToyDetail(DetailView):
+  model = Toy
+
+class ToyCreate(CreateView):
+  model = Toy
+  fields = '__all__'
+  success_url = '/toys/'
